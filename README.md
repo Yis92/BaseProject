@@ -1,3 +1,3 @@
 # BaseProject
 
-![image](https://github.com/liuyi-android/BaseProject/master/demo.gif)
+![image](https://github.com/liuyi-android/BaseProject/blob/master/demo.gif)
