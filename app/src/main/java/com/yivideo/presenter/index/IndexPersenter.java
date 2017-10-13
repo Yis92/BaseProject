@@ -9,19 +9,18 @@ import com.yivideo.utils.Preconditions;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by sunny on 2017/8/28.
  */
 
-public class IndexPersenter extends RxPresenter implements IndexContract.Persenter {
+public class IndexPersenter extends RxPresenter<IndexContract.View> implements IndexContract.Persenter {
 
-    IndexContract.View mView;
 
-    public IndexPersenter(@NonNull IndexContract.View mView) {
-        mView = Preconditions.checkNotNull(mView);
-        mView.setPresenter(this);
-        this.mView = mView;
-        getData();
+    @Inject
+    public IndexPersenter() {
+
     }
 
     @Override
@@ -46,6 +45,6 @@ public class IndexPersenter extends RxPresenter implements IndexContract.Persent
         list2.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503469037773&di=75575ebafa16c9f093ecb1c5cbea5f23&imgtype=0&src=http%3A%2F%2Fimage1.92bizhi.com%2Fanimal_dogs--06_27-1920x1440.jpg");
         list2.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503469037772&di=16d1d5ac154b6aa948cbf8b9033d5804&imgtype=0&src=http%3A%2F%2Fwww.550990.com%2Fupload%2Fphoto%2F00%2F01%2F71%2F34%2F17134.jpg");
         list2.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503469037772&di=694d6a36b1b9e600f447c1333bbfddf5&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2F201508%2F2015081501.jpg");
-        mView.showContent(list1,list2);
+        mView.showContent(list1, list2);
     }
 }

@@ -10,8 +10,7 @@ import com.yivideo.base.BaseView;
 
 public interface StartContract {
 
-    interface View extends BaseView<Presenter> {
-        boolean isActive();
+    interface View extends BaseView {
 
         void showImg(String img);
 
@@ -20,7 +19,7 @@ public interface StartContract {
         void jumpToMain();
     }
 
-    interface Presenter extends BasePresenter {
+    interface Presenter extends BasePresenter<View> {
         void getStartImg();
     }
 }

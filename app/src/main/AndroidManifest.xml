@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.yivideo.ui.activity.StartActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

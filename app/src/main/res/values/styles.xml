@@ -31,6 +31,12 @@
         <item name="android:activityCloseExitAnimation">@anim/base_slide_right_out</item>
     </style>
 
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+
     <!--设置继承appcompat的activity透明主题-->
     <style name="CustomTransparent" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@android:color/transparent</item>

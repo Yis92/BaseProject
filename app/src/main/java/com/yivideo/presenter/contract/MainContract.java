@@ -12,9 +12,12 @@ import java.util.List;
 public interface MainContract {
 
 
-    interface View extends BaseView<Presenter> {
+    interface View extends BaseView {
+
+        void showData();
     }
 
-    interface Presenter extends BasePresenter {
+    interface Presenter extends BasePresenter<View> {
+        void getData();
     }
 }

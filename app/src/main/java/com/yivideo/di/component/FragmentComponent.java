@@ -5,6 +5,7 @@ import android.app.Activity;
 
 import com.yivideo.di.module.FragmentModule;
 import com.yivideo.di.scope.FragmentScope;
+import com.yivideo.ui.fragment.IndexFragment;
 
 import dagger.Component;
 
@@ -18,5 +19,6 @@ public interface FragmentComponent {
 
     Activity getActivity();
 
+    void inject(IndexFragment indexFragment);
 
 }

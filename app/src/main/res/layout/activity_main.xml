@@ -1,11 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@android:color/white">
 
-    <com.yivideo.ui.view.MainView
-        android:id="@+id/main_view"
-        style="@style/both_match_style" />
+    <com.yivideo.widget.UnScrollViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:paddingBottom="40dp" />
 
-</LinearLayout>
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/bottom_bg_line"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_index"
+            style="@style/tab_rb_style"
+            android:checked="true"
+            android:drawableTop="@drawable/tab_index"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/rb_hot"
+            style="@style/tab_rb_style"
+            android:drawableTop="@drawable/tab_hot"
+            android:text="热点" />
+
+        <RadioButton
+            android:id="@+id/rb_zhibo"
+            style="@style/tab_rb_style"
+            android:drawableTop="@drawable/tab_zhibo"
+            android:text="直播" />
+
+        <RadioButton
+            android:id="@+id/rb_user"
+            style="@style/tab_rb_style"
+            android:drawableTop="@drawable/tab_user"
+            android:text="个人中心" />
+    </RadioGroup>
+</RelativeLayout>

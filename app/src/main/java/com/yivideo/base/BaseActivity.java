@@ -16,23 +16,30 @@ import com.yivideo.utils.ScreenUtil;
 import com.yivideo.widget.theme.ColorRelativeLayout;
 import com.yivideo.widget.theme.Theme;
 
+import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;
 
 /**
  * Created by yivideo on 2017/8/18.
  */
-public abstract class BaseActivity<T extends BasePresenter> extends SupportActivity {
+public abstract class BaseActivity extends SupportActivity {
 
-    protected Unbinder unbinder;
-    protected T mPresenter;
+    protected Activity mContext;
+    private Unbinder mUnBinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         KL.d(this.getClass(), this.getClass().getName() + "------>onCreate");
-
         init();
+
+        setContentView(getLayout());
+        getIntentData();
+        mContext = this;
+        mUnBinder = ButterKnife.bind(this);
+        initView();
+        initEvent();
     }
 
     protected void init() {
@@ -76,10 +83,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends SupportActiv
     protected void onDestroy() {
         super.onDestroy();
         KL.d(this.getClass(), this.getClass().getName() + "------>onDestroy");
+        if (mUnBinder != null)
+            mUnBinder.unbind();
         App.getInstance().unregisterActivity(this);
-        if (unbinder != null)
-            unbinder.unbind();
-        mPresenter = null;
     }
 
     private void onPreCreate() {
@@ -172,5 +178,16 @@ public abstract class BaseActivity<T extends BasePresenter> extends SupportActiv
 
     protected static View getRootView(Activity context) {
         return ((ViewGroup) context.findViewById(android.R.id.content)).getChildAt(0);
+    }
+
+    protected abstract int getLayout();
+
+    protected void initView() {
+    }
+
+    protected void initEvent() {
+    }
+
+    protected void getIntentData() {
     }
 }

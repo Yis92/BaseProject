@@ -8,9 +8,6 @@ package com.yivideo.base;
  * @author: caopeng
  * @time: 2016/9/12 10:18
  ******************************************/
-public interface BaseView<T> {
-    void setPresenter(T presenter);
-
+public interface BaseView {
     void showError(String msg);
-
 }
